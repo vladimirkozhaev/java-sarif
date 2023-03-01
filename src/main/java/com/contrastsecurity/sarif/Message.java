@@ -47,6 +47,11 @@ public class Message {
      * An array of strings to substitute into the message string.
      * 
      */
+
+    @JsonProperty("runs")
+    @JsonPropertyDescription("An array of strings to substitute into the message string.")
+    private List<Run> runs = null;
+
     @JsonProperty("arguments")
     @JsonPropertyDescription("An array of strings to substitute into the message string.")
     private List<String> arguments = null;
@@ -150,6 +155,25 @@ public class Message {
         return this;
     }
 
+    @JsonProperty("runs")
+    public List<Run> getRuns() {
+        return runs;
+    }
+
+    /**
+     * An array of strings to substitute into the message string.
+     *
+     */
+    @JsonProperty("runs")
+    public void setRuns(List<Run> runs) {
+        this.runs = runs;
+    }
+
+    public Message withRuns(List<Run> runs) {
+        this.runs = runs;
+        return this;
+    }
+
     /**
      * Key/value pairs that provide additional information about the object.
      * 
@@ -192,6 +216,9 @@ public class Message {
         sb.append("arguments");
         sb.append('=');
         sb.append(((this.arguments == null)?"<null>":this.arguments));
+        sb.append("runs");
+        sb.append('=');
+        sb.append(((this.runs == null)?"<null>":this.runs));
         sb.append(',');
         sb.append("properties");
         sb.append('=');
