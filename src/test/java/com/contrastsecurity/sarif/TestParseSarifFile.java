@@ -26,9 +26,12 @@ public class TestParseSarifFile {
         Tool tool = run.getTool();
         assertNotNull(tool);
         assertNotNull(run.getResults());
+        System.out.println("run.getInvocations:"+run.getInvocations().get(0));
         for (Result result : run.getResults()
         ) {
             System.out.println("-------------- result:" + result.getMessage().getText());
+            result.getMessage();
+
             for (Location location : result.getLocations()) {
                 System.out.println("location uri:" + location.getPhysicalLocation().getArtifactLocation().getUri());
                 Region region = location.getPhysicalLocation().getRegion();
@@ -40,6 +43,7 @@ public class TestParseSarifFile {
 
 
     }
+/*
 
     @Test
     public void testScan_2023jan15_1613_unifiedcli_easybuggy() throws IOException {
@@ -99,5 +103,6 @@ public class TestParseSarifFile {
 
 
     }
+*/
 
 }

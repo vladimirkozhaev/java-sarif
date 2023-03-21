@@ -3,11 +3,13 @@ package com.contrastsecurity.sarif;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+import org.junit.Test;
+
 
 import java.io.IOException;
 import java.io.StringWriter;
+
+import static org.junit.Assert.assertEquals;
 
 public class SerializationTests {
   @Test
@@ -24,6 +26,6 @@ public class SerializationTests {
     JsonNode actual =  new ObjectMapper().readTree(writer.toString());
     JsonNode expected = new ObjectMapper().readTree("{\"level\" : \"error\", \"message\" : { \"text\" : \"hi\" } }");
 
-    assertThat(actual).isEqualTo(expected);
+    assertEquals(expected,actual);
   }
 }
